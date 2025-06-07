@@ -36,9 +36,8 @@ export function Hero() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-venice-text leading-tight">
-            The
-            <span className="block font-serif italic text-venice-coral mt-2">
-              Venice.ai Community
+            <span className="block font-serif italic text-venice-coral">
+              Venice.ai Ecosystem Apps
             </span>
           </h1>
 
