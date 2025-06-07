@@ -9,7 +9,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-warm">
+    <section className="relative py-8 overflow-hidden bg-gradient-warm">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
@@ -36,9 +36,9 @@ export function Hero() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-venice-text leading-tight">
-            Welcome to
+            The
             <span className="block font-serif italic text-venice-coral mt-2">
-              Venice
+              Venice.ai Community
             </span>
           </h1>
 

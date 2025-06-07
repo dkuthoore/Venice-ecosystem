@@ -24,7 +24,7 @@ export function Header() {
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center justify-center flex-1 space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
