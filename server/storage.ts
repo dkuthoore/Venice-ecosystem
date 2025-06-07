@@ -1,6 +1,6 @@
 import { categories, projects, type Category, type Project, type InsertCategory, type InsertProject, type ProjectWithCategory } from "@shared/schema";
 import { db } from "./db";
-import { eq, and, ilike, or, count, countDistinct } from "drizzle-orm";
+import { eq, and, ilike, or, count, countDistinct, desc } from "drizzle-orm";
 
 export interface IStorage {
   // Categories
@@ -52,6 +52,7 @@ export class DatabaseStorage implements IStorage {
     featured?: boolean;
     trending?: boolean;
     status?: string;
+    sortBy?: string;
   }): Promise<ProjectWithCategory[]> {
     const conditions = [];
     
@@ -77,16 +78,34 @@ export class DatabaseStorage implements IStorage {
       conditions.push(eq(projects.status, filters.status));
     }
 
-    let query = db
+    let baseQuery = db
       .select()
       .from(projects)
       .leftJoin(categories, eq(projects.categoryId, categories.id));
 
     if (conditions.length > 0) {
-      query = query.where(and(...conditions));
+      baseQuery = baseQuery.where(and(...conditions));
     }
 
-    const results = await query;
+    // Add sorting
+    const sortBy = filters?.sortBy || "newest";
+    
+    let results;
+    switch (sortBy) {
+      case "alphabetical":
+        results = await baseQuery.orderBy(projects.name);
+        break;
+      case "popular":
+        results = await baseQuery.orderBy(desc(projects.rating));
+        break;
+      case "trending":
+        results = await baseQuery.orderBy(desc(projects.isTrending), desc(projects.id));
+        break;
+      case "newest":
+      default:
+        results = await baseQuery.orderBy(desc(projects.id));
+        break;
+    }
     
     return results.map(row => ({
       ...row.projects,

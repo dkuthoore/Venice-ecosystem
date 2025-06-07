@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { Github, ExternalLink } from "lucide-react";
 import { FaXTwitter } from "react-icons/fa6";
-import veniceLogoPath from "@assets/venice-logo.png";
 
 export function Footer() {
   return (
@@ -47,7 +46,7 @@ export function Footer() {
                 className="text-venice-light hover:text-venice-coral transition-colors flex items-center"
                 aria-label="Venice.ai"
               >
-                <img src={veniceLogoPath} alt="Venice.ai" className="w-6 h-6" />
+                <img src="/venice-logo.png" alt="Venice.ai" className="w-6 h-6" />
               </a>
             </div>
           </div>
