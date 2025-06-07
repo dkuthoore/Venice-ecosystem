@@ -12,32 +12,41 @@ export function Hero() {
     <section className="relative py-16 overflow-hidden bg-gradient-warm">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 25% 25%, #f3f1ed 0%, transparent 50%), radial-gradient(circle at 75% 75%, #f8f6f2 0%, transparent 50%)'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 25% 25%, #f3f1ed 0%, transparent 50%), radial-gradient(circle at 75% 75%, #f8f6f2 0%, transparent 50%)",
+          }}
+        ></div>
       </div>
-      
+
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="mb-8">
             <div className="w-16 h-16 mx-auto mb-6 bg-venice-coral rounded-full flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L3 7v10c0 5.55 3.84 9.74 9 10.86C17.16 26.74 21 22.55 21 17V7l-9-5z"/>
+              <svg
+                className="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L3 7v10c0 5.55 3.84 9.74 9 10.86C17.16 26.74 21 22.55 21 17V7l-9-5z" />
               </svg>
             </div>
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-venice-text leading-tight">
             Welcome to
             <span className="block font-serif italic text-venice-coral mt-2">
               Venice
             </span>
           </h1>
-          
+
           <p className="text-xl text-venice-light mb-12 max-w-3xl mx-auto leading-relaxed">
-            Discover and showcase applications built with Venice.ai's decentralized AI infrastructure.
+            Discover and showcase applications built with Venice.ai's private AI
+            infrastructure.
           </p>
-          
+
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href="/directory">
@@ -46,7 +55,10 @@ export function Hero() {
               </Button>
             </Link>
             <Link href="/submit">
-              <Button variant="outline" className="border-[#E85A4F] text-[#E85A4F] hover:bg-[#E85A4F] hover:text-white rounded-full px-8 py-3">
+              <Button
+                variant="outline"
+                className="border-[#E85A4F] text-[#E85A4F] hover:bg-[#E85A4F] hover:text-white rounded-full px-8 py-3"
+              >
                 Submit Your App
               </Button>
             </Link>

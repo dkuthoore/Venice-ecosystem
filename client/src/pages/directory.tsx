@@ -15,13 +15,13 @@ export default function Directory() {
     trending: undefined,
     sortBy: "newest",
   });
-  
+
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   return (
     <div className="min-h-screen bg-venice-warm text-venice-text">
       <Header />
-      
+
       {/* Hero Section with Search */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,9 +30,10 @@ export default function Directory() {
               Discover AI Apps
             </h1>
             <p className="text-xl text-venice-light max-w-3xl mx-auto mb-8">
-              Explore applications built with Venice.ai's private, decentralized AI infrastructure
+              Explore applications built with Venice.ai's private AI
+              infrastructure
             </p>
-            
+
             {/* Search Bar */}
             <div className="max-w-2xl mx-auto relative">
               <div className="relative">
@@ -41,7 +42,9 @@ export default function Directory() {
                   type="text"
                   placeholder="Search projects, developers, or technologies..."
                   value={filters.search}
-                  onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+                  onChange={(e) =>
+                    setFilters({ ...filters, search: e.target.value })
+                  }
                   className="w-full pl-12 pr-4 py-4 text-lg border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-venice-coral focus:border-transparent"
                 />
               </div>
@@ -59,7 +62,7 @@ export default function Directory() {
             viewMode={viewMode}
             onViewModeChange={setViewMode}
           />
-          
+
           <ProjectGrid filters={filters} viewMode={viewMode} />
         </div>
       </section>
