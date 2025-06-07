@@ -23,7 +23,7 @@ export function Header() {
               </div>
             </Link>
           </div>
-          
+
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
               <Link
@@ -46,9 +46,13 @@ export function Header() {
                 Submit App →
               </Button>
             </Link>
-            <a href="https://venice.ai/chat" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://venice.ai/chat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button className="bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white rounded-full px-4 py-2">
-                Go to Venice
+                Venice App
               </Button>
             </a>
             <button

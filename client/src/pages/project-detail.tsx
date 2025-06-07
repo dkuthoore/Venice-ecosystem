@@ -124,17 +124,22 @@ export default function ProjectDetail() {
 
           {/* Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white border border-gray-200 rounded-xl p-8 sticky top-24 shadow-sm">
-              <div className="flex items-center justify-between mb-8">
-                <div className="flex items-center gap-2">
-                  <Star className="w-6 h-6 text-yellow-500 fill-current" />
-                  <span className="text-2xl font-bold text-venice-text">{rating.toFixed(1)}</span>
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-8 sticky top-24 shadow-sm">
+              {/* Developer Section */}
+              <div className="mb-8">
+                <h3 className="font-bold text-venice-text mb-4 text-lg">Developer</h3>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-venice-coral rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    {project.developer.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-venice-text">{project.developer}</p>
+                    <p className="text-sm text-venice-light">Venice.ai Developer</p>
+                  </div>
                 </div>
-                <Button variant="ghost" size="sm" className="text-venice-light hover:text-venice-coral">
-                  <Heart className="w-5 h-5" />
-                </Button>
               </div>
 
+              {/* Action Buttons */}
               <div className="space-y-4 mb-8">
                 {project.externalUrl && (
                   <a
@@ -165,37 +170,10 @@ export default function ProjectDetail() {
                 )}
               </div>
 
-              <div className="border-t border-gray-200 pt-6 mb-6">
-                <h3 className="font-bold text-venice-text mb-4 text-lg">Developer</h3>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-venice-coral rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    {project.developer.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-venice-text">{project.developer}</p>
-                    <p className="text-sm text-venice-light">Venice.ai Developer</p>
-                  </div>
-                </div>
-              </div>
-
+              {/* Category */}
               <div className="border-t border-gray-200 pt-6">
-                <div className="mb-4">
-                  <h3 className="font-bold text-venice-text mb-2">Category</h3>
-                  <Badge variant="secondary" className="bg-gray-100 text-venice-text">{project.category.name}</Badge>
-                </div>
-                
-                <div>
-                  <h3 className="font-bold text-venice-text mb-2">Status</h3>
-                  <Badge 
-                    className={
-                      project.status === "approved" 
-                        ? "bg-green-100 text-green-700" 
-                        : "bg-yellow-100 text-yellow-700"
-                    }
-                  >
-                    {project.status}
-                  </Badge>
-                </div>
+                <h3 className="font-bold text-venice-text mb-2">Category</h3>
+                <Badge variant="secondary" className="bg-gray-100 text-venice-text">{project.category.name}</Badge>
               </div>
             </div>
           </div>
