@@ -86,25 +86,25 @@ export default function SubmitProject() {
   };
 
   return (
-    <div className="min-h-screen bg-venice-dark text-white">
+    <div className="min-h-screen bg-venice-warm text-venice-text">
       <Header />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Link href="/">
-          <Button variant="ghost" className="mb-8 text-gray-300 hover:text-white">
+        <Link href="/directory">
+          <Button variant="ghost" className="mb-8 text-venice-light hover:text-venice-text">
             <ArrowLeft className="mr-2" size={16} />
             Back to Directory
           </Button>
         </Link>
 
-        <Card className="bg-gray-900/50 backdrop-blur-lg border-gray-700">
-          <CardHeader>
-            <CardTitle className="text-3xl font-bold">Submit Your Venice.ai Application</CardTitle>
-            <CardDescription className="text-gray-400">
+        <Card className="bg-white border border-gray-200 shadow-sm">
+          <CardHeader className="border-b border-gray-100">
+            <CardTitle className="text-3xl font-bold text-venice-text">Submit Your Venice.ai Application</CardTitle>
+            <CardDescription className="text-venice-light text-lg">
               Share your innovative application built with Venice.ai's decentralized AI API with the community.
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-8">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -113,11 +113,11 @@ export default function SubmitProject() {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Application Name</FormLabel>
+                        <FormLabel className="text-venice-text font-semibold">Application Name</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="My Awesome AI App"
-                            className="bg-gray-800 border-gray-700"
+                            className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                             {...field}
                           />
                         </FormControl>
@@ -131,11 +131,11 @@ export default function SubmitProject() {
                     name="developer"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Developer Name</FormLabel>
+                        <FormLabel className="text-venice-text font-semibold">Developer Name</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="Your Name"
-                            className="bg-gray-800 border-gray-700"
+                            className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                             {...field}
                           />
                         </FormControl>
@@ -150,15 +150,15 @@ export default function SubmitProject() {
                   name="shortDescription"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Short Description</FormLabel>
+                      <FormLabel className="text-venice-text font-semibold">Short Description</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="A brief one-line description of your app..."
-                          className="bg-gray-800 border-gray-700"
+                          className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                           {...field}
                         />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-venice-light">
                         This will be shown in the project cards and search results.
                       </FormDescription>
                       <FormMessage />
@@ -171,15 +171,15 @@ export default function SubmitProject() {
                   name="description"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Detailed Description</FormLabel>
+                      <FormLabel className="text-venice-text font-semibold">Detailed Description</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder="Provide a detailed description of your application, its features, and how it uses Venice.ai's API..."
-                          className="bg-gray-800 border-gray-700 min-h-32"
+                          className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F] min-h-32"
                           {...field}
                         />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-venice-light">
                         Explain what your app does, its key features, and how it leverages Venice.ai.
                       </FormDescription>
                       <FormMessage />
@@ -192,10 +192,10 @@ export default function SubmitProject() {
                   name="categoryId"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Category</FormLabel>
+                      <FormLabel className="text-venice-text font-semibold">Category</FormLabel>
                       <Select onValueChange={(value) => field.onChange(parseInt(value))} defaultValue={field.value?.toString()}>
                         <FormControl>
-                          <SelectTrigger className="bg-gray-800 border-gray-700">
+                          <SelectTrigger className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]">
                             <SelectValue placeholder="Select a category" />
                           </SelectTrigger>
                         </FormControl>
@@ -203,7 +203,7 @@ export default function SubmitProject() {
                           {categories.map((category) => (
                             <SelectItem key={category.id} value={category.id.toString()}>
                               <div className="flex items-center gap-2">
-                                <i className={`${category.icon} text-sm`}></i>
+                                <span>{category.icon}</span>
                                 {category.name}
                               </div>
                             </SelectItem>
@@ -216,28 +216,28 @@ export default function SubmitProject() {
                 />
 
                 <div className="space-y-4">
-                  <FormLabel>Tags</FormLabel>
+                  <FormLabel className="text-venice-text font-semibold">Tags</FormLabel>
                   <div className="flex gap-2">
                     <Input
                       placeholder="Add a tag..."
                       value={newTag}
                       onChange={(e) => setNewTag(e.target.value)}
                       onKeyPress={(e) => e.key === "Enter" && (e.preventDefault(), addTag())}
-                      className="bg-gray-800 border-gray-700"
+                      className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                     />
-                    <Button type="button" onClick={addTag} variant="outline" size="sm">
+                    <Button type="button" onClick={addTag} className="bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white">
                       <Plus size={16} />
                     </Button>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {customTags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="flex items-center gap-1">
+                      <Badge key={tag} className="bg-gray-100 text-venice-text flex items-center gap-1">
                         {tag}
                         <Button
                           type="button"
                           variant="ghost"
                           size="sm"
-                          className="h-auto p-0 hover:bg-transparent"
+                          className="h-auto p-0 hover:bg-transparent text-venice-light hover:text-venice-text"
                           onClick={() => removeTag(tag)}
                         >
                           <X size={12} />
@@ -245,7 +245,7 @@ export default function SubmitProject() {
                       </Badge>
                     ))}
                   </div>
-                  <FormDescription>
+                  <FormDescription className="text-venice-light">
                     Add relevant tags to help users discover your application.
                   </FormDescription>
                 </div>
@@ -256,15 +256,15 @@ export default function SubmitProject() {
                     name="imageUrl"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Screenshot URL</FormLabel>
+                        <FormLabel className="text-venice-text font-semibold">Screenshot URL</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="https://example.com/screenshot.png"
-                            className="bg-gray-800 border-gray-700"
+                            className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                             {...field}
                           />
                         </FormControl>
-                        <FormDescription>
+                        <FormDescription className="text-venice-light">
                           URL to a screenshot or preview image of your app.
                         </FormDescription>
                         <FormMessage />
@@ -277,15 +277,16 @@ export default function SubmitProject() {
                     name="externalUrl"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Live Demo URL (Optional)</FormLabel>
+                        <FormLabel className="text-venice-text font-semibold">Live Demo URL (Optional)</FormLabel>
                         <FormControl>
                           <Input
                             placeholder="https://yourapp.com"
-                            className="bg-gray-800 border-gray-700"
+                            className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                             {...field}
+                            value={field.value || ""}
                           />
                         </FormControl>
-                        <FormDescription>
+                        <FormDescription className="text-venice-light">
                           Link to your live application.
                         </FormDescription>
                         <FormMessage />
@@ -299,15 +300,16 @@ export default function SubmitProject() {
                   name="githubUrl"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>GitHub Repository (Optional)</FormLabel>
+                      <FormLabel className="text-venice-text font-semibold">GitHub Repository (Optional)</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="https://github.com/username/repo"
-                          className="bg-gray-800 border-gray-700"
+                          className="bg-white border-gray-300 text-venice-text focus:border-[#E85A4F] focus:ring-[#E85A4F]"
                           {...field}
+                          value={field.value || ""}
                         />
                       </FormControl>
-                      <FormDescription>
+                      <FormDescription className="text-venice-light">
                         Link to your source code repository.
                       </FormDescription>
                       <FormMessage />
@@ -315,9 +317,9 @@ export default function SubmitProject() {
                   )}
                 />
 
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
-                  <h3 className="font-semibold mb-2">Submission Guidelines</h3>
-                  <ul className="text-sm text-gray-400 space-y-1">
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                  <h3 className="font-semibold text-venice-text mb-3">Submission Guidelines</h3>
+                  <ul className="text-sm text-venice-light space-y-2">
                     <li>• Your application must use Venice.ai's API</li>
                     <li>• Provide accurate and honest descriptions</li>
                     <li>• Include working screenshots and demo links when possible</li>
@@ -328,7 +330,7 @@ export default function SubmitProject() {
                 <Button
                   type="submit"
                   disabled={submitMutation.isPending}
-                  className="w-full bg-gradient-venice hover:opacity-90 text-white font-semibold py-3"
+                  className="w-full bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white font-semibold py-4 text-lg"
                 >
                   {submitMutation.isPending ? "Submitting..." : "Submit Application"}
                 </Button>
