@@ -23,8 +23,8 @@ export function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="mb-8">
-            <div className="w-16 h-16 mx-auto mb-6 bg-venice-coral rounded-full flex items-center justify-center">
+          <div className="mb-4">
+            <div className="w-16 h-16 mx-auto mb-3 bg-venice-coral rounded-full flex items-center justify-center">
               <svg
                 className="w-8 h-8 text-white"
                 fill="currentColor"
@@ -35,13 +35,13 @@ export function Hero() {
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-venice-text leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-venice-text leading-tight">
             <span className="block font-serif italic text-venice-coral">
-              Venice.ai Ecosystem
+              Venice.ai Ecosystem Apps
             </span>
           </h1>
 
-          <p className="text-xl text-venice-light mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-venice-light mb-8 max-w-3xl mx-auto leading-relaxed">
             Discover and showcase applications built with Venice.ai's private AI
             infrastructure.
           </p>
