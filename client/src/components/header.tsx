@@ -8,22 +8,21 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Discover", href: "/" },
-    { name: "Featured", href: "/?featured=true" },
-    { name: "Categories", href: "/?categories=true" },
-    { name: "Submit Project", href: "/submit" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Features", href: "/features" },
+    { name: "Resources", href: "/resources" },
   ];
 
   return (
-    <header className="bg-venice-dark-light/80 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-lg border-b border-venice sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-venice rounded-lg flex items-center justify-center">
-                <i className="fas fa-cube text-white text-sm"></i>
+              <div className="text-2xl font-serif italic text-venice-text">
+                Venice
               </div>
-              <span className="text-xl font-bold">Venice.ai Directory</span>
             </Link>
           </div>
           
@@ -32,10 +31,10 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`transition-colors ${
+                className={`transition-colors text-sm font-medium ${
                   location === item.href
-                    ? "text-white"
-                    : "text-gray-300 hover:text-white"
+                    ? "text-venice-coral"
+                    : "text-venice-text hover:text-venice-coral"
                 }`}
               >
                 {item.name}
@@ -45,12 +44,15 @@ export function Header() {
 
           <div className="flex items-center space-x-4">
             <Link href="/submit">
-              <Button className="bg-gradient-venice hover:opacity-90 text-white font-medium transition-all">
-                Submit App
+              <Button className="bg-venice-coral hover:bg-venice-coral/90 text-white font-medium transition-all rounded-full px-6 py-2">
+                Submit App →
               </Button>
             </Link>
+            <Button variant="outline" className="border-venice text-venice-coral hover:bg-venice-coral hover:text-white rounded-full px-4 py-2">
+              Sign in
+            </Button>
             <button
-              className="md:hidden text-gray-300 hover:text-white"
+              className="md:hidden text-venice-text hover:text-venice-coral"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -60,13 +62,13 @@ export function Header() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="md:hidden py-4 border-t border-venice">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-300 hover:text-white transition-colors"
+                  className="text-venice-text hover:text-venice-coral transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
