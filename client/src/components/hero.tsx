@@ -9,7 +9,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative py-8 overflow-hidden bg-gradient-warm">
+    <section className="relative py-4 overflow-hidden bg-gradient-warm">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div
