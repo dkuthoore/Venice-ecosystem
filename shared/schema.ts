@@ -1,8 +1,6 @@
-import { pgTable, text, serial, integer, boolean, timestamp, pgEnum } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean, timestamp } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-
-export const projectStatusEnum = pgEnum('project_status', ['pending', 'approved', 'rejected']);
 
 export const categories = pgTable("categories", {
   id: serial("id").primaryKey(),
@@ -30,7 +28,7 @@ export const projects = pgTable("projects", {
   isNew: boolean("is_new").notNull().default(false),
   isTrending: boolean("is_trending").notNull().default(false),
   tags: text("tags").array().notNull().default([]),
-  status: projectStatusEnum("status").notNull().default("pending"),
+  status: text("status").notNull().default("pending"), // pending, approved, rejected
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
