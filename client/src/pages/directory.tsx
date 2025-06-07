@@ -23,9 +23,9 @@ export default function Directory() {
       <Header />
       
       {/* Hero Section with Search */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-venice-text mb-6">
               Discover AI Apps
             </h1>

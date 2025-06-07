@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useRoute } from "wouter";
+import { useEffect } from "react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
@@ -11,6 +12,11 @@ import type { ProjectWithCategory } from "@shared/schema";
 export default function ProjectDetail() {
   const [match, params] = useRoute("/project/:id");
   const projectId = params?.id ? parseInt(params.id) : null;
+
+  // Scroll to top when component mounts or project changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [projectId]);
 
   const { data: project, isLoading, error } = useQuery<ProjectWithCategory>({
     queryKey: ["/api/projects", projectId],
