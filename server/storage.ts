@@ -53,11 +53,6 @@ export class DatabaseStorage implements IStorage {
     trending?: boolean;
     status?: string;
   }): Promise<ProjectWithCategory[]> {
-    let query = db
-      .select()
-      .from(projects)
-      .leftJoin(categories, eq(projects.categoryId, categories.id));
-
     const conditions = [];
     
     if (filters?.categoryId) {
@@ -81,6 +76,11 @@ export class DatabaseStorage implements IStorage {
     if (filters?.status) {
       conditions.push(eq(projects.status, filters.status));
     }
+
+    let query = db
+      .select()
+      .from(projects)
+      .leftJoin(categories, eq(projects.categoryId, categories.id));
 
     if (conditions.length > 0) {
       query = query.where(and(...conditions));
