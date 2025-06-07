@@ -125,7 +125,7 @@ export class DatabaseStorage implements IStorage {
         isFeatured: false,
         isNew: true,
         isTrending: false,
-        status: "approved",
+        status: "approved" as const,
         tags: insertProject.tags || [],
       })
       .returning();
