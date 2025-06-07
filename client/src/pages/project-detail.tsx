@@ -129,7 +129,7 @@ export default function ProjectDetail() {
               <div className="mb-8">
                 <h3 className="font-bold text-venice-text mb-4 text-lg">Developer</h3>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-venice-coral rounded-full flex items-center justify-center text-white font-bold text-lg">
+                  <div className="w-12 h-12 bg-[#E85A4F] rounded-full flex items-center justify-center text-white font-bold text-lg shadow-sm">
                     {project.developer.charAt(0)}
                   </div>
                   <div>
@@ -148,7 +148,7 @@ export default function ProjectDetail() {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <Button className="w-full bg-venice-coral hover:bg-venice-coral/90 text-white py-3 text-lg">
+                    <Button className="w-full bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white py-3 text-lg shadow-md">
                       <ExternalLink className="mr-2" size={20} />
                       Visit Application
                     </Button>
