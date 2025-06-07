@@ -15,6 +15,10 @@ export const projects = pgTable("projects", {
   description: text("description").notNull(),
   shortDescription: text("short_description").notNull(),
   developer: text("developer").notNull(),
+  developerEmail: text("developer_email"),
+  developerTwitter: text("developer_twitter"),
+  developerGithub: text("developer_github"),
+  developerWebsite: text("developer_website"),
   imageUrl: text("image_url").notNull(),
   externalUrl: text("external_url"),
   githubUrl: text("github_url"),
@@ -25,6 +29,7 @@ export const projects = pgTable("projects", {
   isTrending: boolean("is_trending").notNull().default(false),
   tags: text("tags").array().notNull().default([]),
   status: text("status").notNull().default("pending"), // pending, approved, rejected
+  createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
 export const insertCategorySchema = createInsertSchema(categories).omit({
@@ -38,6 +43,7 @@ export const insertProjectSchema = createInsertSchema(projects).omit({
   isNew: true,
   isTrending: true,
   status: true,
+  createdAt: true,
 }).extend({
   rating: z.number().min(1).max(50).optional(),
   tags: z.array(z.string()).optional(),

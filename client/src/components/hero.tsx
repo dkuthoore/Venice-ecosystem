@@ -57,7 +57,7 @@ export function Hero({ onSearch }: HeroProps) {
             <form onSubmit={handleSearch} className="relative">
               <Input
                 type="text"
-                placeholder="Ask anything"
+                placeholder="Search applications, developers, or categories..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-6 py-4 bg-white border border-venice rounded-full text-venice-text placeholder-venice-light focus:outline-none focus:ring-2 focus:ring-venice-coral focus:border-transparent shadow-sm"
@@ -66,34 +66,9 @@ export function Hero({ onSearch }: HeroProps) {
                 type="submit"
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-venice-coral hover:bg-venice-coral/90 text-white px-6 py-2 rounded-full transition-all"
               >
-                →
+                <Search size={16} />
               </Button>
             </form>
-            
-            {/* Feature buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mt-6">
-              <Button variant="outline" size="sm" className="border-venice text-venice-light hover:bg-venice-cream rounded-full">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2a1 1 0 00-2 0v2H8V2a1 1 0 00-2 0v2H5a3 3 0 00-3 3v12a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zM4 20V9h16v11a1 1 0 01-1 1H5a1 1 0 01-1-1z"/>
-                </svg>
-                Summarize
-              </Button>
-              <Button variant="outline" size="sm" className="border-venice text-venice-light hover:bg-venice-cream rounded-full">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                </svg>
-                Critique
-              </Button>
-              <Button variant="outline" size="sm" className="border-venice text-venice-light hover:bg-venice-cream rounded-full">
-                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
-                </svg>
-                Imagine
-              </Button>
-              <Button variant="outline" size="sm" className="border-venice text-venice-light hover:bg-venice-cream rounded-full">
-                More
-              </Button>
-            </div>
           </div>
 
           {/* Stats */}
