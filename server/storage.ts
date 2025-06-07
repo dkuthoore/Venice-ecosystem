@@ -111,6 +111,9 @@ export class MemStorage implements IStorage {
         isNew: index === 2,
         isTrending: index === 1,
         status: "approved",
+        externalUrl: project.externalUrl || null,
+        githubUrl: project.githubUrl || null,
+        tags: project.tags || [],
       };
       
       this.projects.set(id, fullProject);
@@ -191,6 +194,9 @@ export class MemStorage implements IStorage {
       isNew: true,
       isTrending: false,
       status: "pending",
+      externalUrl: insertProject.externalUrl || null,
+      githubUrl: insertProject.githubUrl || null,
+      tags: insertProject.tags || [],
     };
     this.projects.set(id, project);
     return project;
