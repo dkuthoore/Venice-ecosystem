@@ -1,28 +1,15 @@
-import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Search } from "lucide-react";
 import type { Stats } from "@/lib/types";
 
-interface HeroProps {
-  onSearch: (query: string) => void;
-}
-
-export function Hero({ onSearch }: HeroProps) {
-  const [searchQuery, setSearchQuery] = useState("");
-
+export function Hero() {
   const { data: stats, isLoading } = useQuery<Stats>({
     queryKey: ["/api/stats"],
   });
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSearch(searchQuery);
-  };
-
   return (
-    <section className="relative py-24 overflow-hidden bg-gradient-warm">
+    <section className="relative py-16 overflow-hidden bg-gradient-warm">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0" style={{
@@ -40,7 +27,7 @@ export function Hero({ onSearch }: HeroProps) {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-venice-text leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-venice-text leading-tight">
             Welcome to
             <span className="block font-serif italic text-venice-coral mt-2">
               Venice
@@ -52,23 +39,18 @@ export function Hero({ onSearch }: HeroProps) {
             Find inspiration, discover tools, and showcase your own creations.
           </p>
           
-          {/* Search Bar */}
-          <div className="max-w-2xl mx-auto mb-16">
-            <form onSubmit={handleSearch} className="relative">
-              <Input
-                type="text"
-                placeholder="Search applications, developers, or categories..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 bg-white border border-venice rounded-full text-venice-text placeholder-venice-light focus:outline-none focus:ring-2 focus:ring-venice-coral focus:border-transparent shadow-sm"
-              />
-              <Button
-                type="submit"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-venice-coral hover:bg-venice-coral/90 text-white px-6 py-2 rounded-full transition-all"
-              >
-                <Search size={16} />
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+            <Link href="/directory">
+              <Button className="bg-venice-coral hover:bg-venice-coral/90 text-white font-medium transition-all rounded-full px-8 py-3">
+                Browse Apps
               </Button>
-            </form>
+            </Link>
+            <Link href="/submit">
+              <Button variant="outline" className="border-venice-coral text-venice-coral hover:bg-venice-coral hover:text-white rounded-full px-8 py-3">
+                Submit Your App
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
