@@ -162,7 +162,7 @@ export default function ProjectDetail() {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <Button variant="outline" className="w-full border-venice-coral text-venice-coral hover:bg-venice-coral hover:text-white py-3 text-lg">
+                    <Button variant="outline" className="w-full border-[#E85A4F] text-[#E85A4F] hover:bg-[#E85A4F] hover:text-white hover:border-[#E85A4F] py-3 text-lg transition-all">
                       <Github className="mr-2" size={20} />
                       View Source Code
                     </Button>
