@@ -17,10 +17,28 @@ export function ProjectGrid({ filters, viewMode }: ProjectGridProps) {
   if (filters.categoryId) queryParams.set("categoryId", filters.categoryId.toString());
   if (filters.featured !== undefined) queryParams.set("featured", filters.featured.toString());
   if (filters.trending !== undefined) queryParams.set("trending", filters.trending.toString());
+  if (filters.sortBy) queryParams.set("sortBy", filters.sortBy);
   
-  const { data: projects = [], isLoading } = useQuery<ProjectWithCategory[]>({
+  const { data: rawProjects = [], isLoading } = useQuery<ProjectWithCategory[]>({
     queryKey: ["/api/projects", filters],
     queryFn: () => fetch(`/api/projects?${queryParams.toString()}`).then(res => res.json()),
+  });
+
+  // Apply sorting on frontend as fallback
+  const projects = rawProjects.sort((a, b) => {
+    switch (filters.sortBy) {
+      case "alphabetical":
+        return a.name.localeCompare(b.name);
+      case "popular":
+        return (b.rating || 0) - (a.rating || 0);
+      case "trending":
+        if (a.isTrending && !b.isTrending) return -1;
+        if (!a.isTrending && b.isTrending) return 1;
+        return b.id - a.id;
+      case "newest":
+      default:
+        return b.id - a.id;
+    }
   });
 
   if (isLoading) {

@@ -78,34 +78,22 @@ export class DatabaseStorage implements IStorage {
       conditions.push(eq(projects.status, filters.status));
     }
 
-    let baseQuery = db
-      .select()
-      .from(projects)
-      .leftJoin(categories, eq(projects.categoryId, categories.id));
-
+    // Build query with conditions
+    let query;
     if (conditions.length > 0) {
-      baseQuery = baseQuery.where(and(...conditions));
+      query = db
+        .select()
+        .from(projects)
+        .leftJoin(categories, eq(projects.categoryId, categories.id))
+        .where(and(...conditions));
+    } else {
+      query = db
+        .select()
+        .from(projects)
+        .leftJoin(categories, eq(projects.categoryId, categories.id));
     }
 
-    // Add sorting
-    const sortBy = filters?.sortBy || "newest";
-    
-    let results;
-    switch (sortBy) {
-      case "alphabetical":
-        results = await baseQuery.orderBy(projects.name);
-        break;
-      case "popular":
-        results = await baseQuery.orderBy(desc(projects.rating));
-        break;
-      case "trending":
-        results = await baseQuery.orderBy(desc(projects.isTrending), desc(projects.id));
-        break;
-      case "newest":
-      default:
-        results = await baseQuery.orderBy(desc(projects.id));
-        break;
-    }
+    const results = await query;
     
     return results.map(row => ({
       ...row.projects,

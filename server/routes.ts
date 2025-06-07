@@ -17,7 +17,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get projects with optional filters
   app.get("/api/projects", async (req, res) => {
     try {
-      const { categoryId, search, featured, trending, status } = req.query;
+      const { categoryId, search, featured, trending, status, sortBy } = req.query;
       
       const filters = {
         categoryId: categoryId ? parseInt(categoryId as string) : undefined,
@@ -25,6 +25,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         featured: featured === "true" ? true : featured === "false" ? false : undefined,
         trending: trending === "true" ? true : trending === "false" ? false : undefined,
         status: (status as string) || "approved", // Default to approved projects
+        sortBy: sortBy as string,
       };
 
       const projects = await storage.getProjects(filters);
