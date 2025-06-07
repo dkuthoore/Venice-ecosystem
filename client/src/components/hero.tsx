@@ -35,19 +35,18 @@ export function Hero() {
           </h1>
           
           <p className="text-xl text-venice-light mb-12 max-w-3xl mx-auto leading-relaxed">
-            Explore the growing ecosystem of applications built with Venice.ai's private, decentralized AI API. 
-            Find inspiration, discover tools, and showcase your own creations.
+            Discover and showcase applications built with Venice.ai's decentralized AI infrastructure.
           </p>
           
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link href="/directory">
-              <Button className="bg-venice-coral hover:bg-venice-coral/90 text-white font-medium transition-all rounded-full px-8 py-3">
+              <Button className="bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white font-medium transition-all rounded-full px-8 py-3">
                 Browse Apps
               </Button>
             </Link>
             <Link href="/submit">
-              <Button variant="outline" className="border-venice-coral text-venice-coral hover:bg-venice-coral hover:text-white rounded-full px-8 py-3">
+              <Button variant="outline" className="border-[#E85A4F] text-[#E85A4F] hover:bg-[#E85A4F] hover:text-white rounded-full px-8 py-3">
                 Submit Your App
               </Button>
             </Link>

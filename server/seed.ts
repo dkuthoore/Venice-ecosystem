@@ -91,7 +91,7 @@ async function seed() {
       developerTwitter: "@NeonDreamsIO",
       developerGithub: "neon-dreams-interactive",
       developerWebsite: "https://neondreams.io",
-      imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
+      imageUrl: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
       externalUrl: "https://retro.venice.ai",
       githubUrl: "https://github.com/venice-ai/retro-chat-interface",
       categoryId: insertedCategories.find(c => c.slug === "chat-interfaces")!.id,

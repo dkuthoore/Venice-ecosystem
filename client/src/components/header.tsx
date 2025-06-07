@@ -42,11 +42,11 @@ export function Header() {
 
           <div className="flex items-center space-x-4">
             <Link href="/submit">
-              <Button className="bg-venice-coral hover:bg-venice-coral/90 text-white font-medium transition-all rounded-full px-6 py-2">
+              <Button className="bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white font-medium transition-all rounded-full px-6 py-2">
                 Submit App →
               </Button>
             </Link>
-            <Button variant="outline" className="border-venice text-venice-coral hover:bg-venice-coral hover:text-white rounded-full px-4 py-2">
+            <Button className="bg-[#E85A4F] hover:bg-[#E85A4F]/90 text-white rounded-full px-4 py-2">
               Sign in
             </Button>
             <button
